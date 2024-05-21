@@ -11,6 +11,7 @@ import lombok.*;
 @Table(name = "BOARDS")
 //
 //
+//
 public class Board {
 
     @Id
