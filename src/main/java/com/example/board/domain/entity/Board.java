@@ -9,9 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "BOARDS")
-//
-//
-//
 public class Board {
 
     @Id
