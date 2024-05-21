@@ -89,7 +89,7 @@ class BoardServiceTest {
     void getAllBoardExist() {
         BDDMockito.given(boardRepository.findAll()).willReturn(Collections.emptyList());
 
-        assertThrows(IllegalArgumentException.class, () -> {
+         assertThrows(IllegalArgumentException.class, () -> {
             boardService.getAllBoards();
         });
 
