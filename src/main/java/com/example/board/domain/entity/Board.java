@@ -10,6 +10,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Table(name = "BOARDS")
 //
+//
 public class Board {
 
     @Id
