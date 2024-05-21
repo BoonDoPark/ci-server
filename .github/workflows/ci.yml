@@ -27,7 +27,7 @@ jobs:
       
     - name: chmod
       run: chmod 744 gradlew
-      if: runner.os == 'Linux' || runners.os == 'macOS'
+      if: runner.os == 'Linux' || runner.os == 'macOS'
       
     - name: Build with Gradle Wrapper
       run: ./gradlew build
