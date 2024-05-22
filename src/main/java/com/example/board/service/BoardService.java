@@ -2,12 +2,13 @@ package com.example.board.service;
 
 import com.example.board.domain.entity.Board;
 import com.example.board.dto.request.BoardRequest;
+import com.example.board.dto.response.BoardResponse;
 
 import java.util.List;
 
 public interface BoardService {
-    Board getBoardFromName(Long id);
-    List<Board> getAllBoards();
+    BoardResponse getBoardFromName(Long id);
+    List<BoardResponse> getAllBoards();
     void createBoard(BoardRequest req);
-    void deleteBoard();
+    void deleteBoard(Long id);
 }
