@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,17 +16,18 @@ public class BoardServiceImpl implements BoardService {
     private final BoardRepository boardRepository;
 
     @Override
-    public Board getBoardFromName(Long id) {
-        return boardRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+    public BoardResponse getBoardFromName(Long id) {
+        Board board = boardRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return BoardResponse.from(board);
     }
 
     @Override
-    public List<Board> getAllBoards() {
+    public List<BoardResponse> getAllBoards() {
         List<Board> boards = boardRepository.findAll();
         if (boards.isEmpty()) {
             throw new IllegalArgumentException("No boards found");
         }
-        return boards;
+        return boards.stream().map(BoardResponse::from).toList();
     }
 
     @Override
@@ -34,7 +36,11 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void deleteBoard() {
-        boardRepository.deleteAll();
+    public void deleteBoard(Long id) {
+        Optional<Board> board = boardRepository.findById(id);
+        if(board.isEmpty())
+            throw new IllegalArgumentException();
+
+        boardRepository.deleteById(id);
     }
 }

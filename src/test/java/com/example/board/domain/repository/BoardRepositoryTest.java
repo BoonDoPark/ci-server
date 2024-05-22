@@ -45,6 +45,4 @@ class BoardRepositoryTest {
         Assertions.assertEquals(findBoard.getName(), board.getName());
         Assertions.assertEquals(findBoard.getText(), board.getText());
     }
-
-
 }
