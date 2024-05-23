@@ -24,12 +24,6 @@ jobs:
       # if: runner.os == 'Linux' || runner.os == 'macOS'
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-    # - name: Add SSH key
-    #   run: |
-    #     mkdir -p ~/.ssh
-    #     echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-    #     chmod 600 ~/.ssh/id_rsa
-    #     ssh-keyscan ${{ secrets.HOST }} >> ~/.ssh/authorized_keys
     - name: CD with Project
       uses: appleboy/ssh-action@v1.0.3
       with:
