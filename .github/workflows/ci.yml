@@ -24,9 +24,18 @@ jobs:
       # if: runner.os == 'Linux' || runner.os == 'macOS'
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+    - name: CD with Project
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: 22
+        script: |
+            cd ci-server/build/libs
+            java -jar -Dspring.profiles.active=prod boards-0.0.1-SNAPSHOT.jar
 
+    
   dependency-submission:
-
     runs-on: ubuntu-latest
     permissions:
       contents: write
