@@ -25,7 +25,7 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
     - name: CD with Project
-      uses: google-github-actions/ssh-compute@v1
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
