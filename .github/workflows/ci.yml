@@ -42,9 +42,6 @@ jobs:
             git pull
             cd build/libs
             java -jar -Dspring.profiles.active=prod board-0.0.1-SNAPSHOT.jar
-      # run: |
-      #   cd ci-server/build/libs
-      #   java -jar -Dspring.profiles.active=prod boards-0.0.1-SNAPSHOT.jar
 
     
   dependency-submission:
