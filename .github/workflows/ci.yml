@@ -37,7 +37,7 @@ jobs:
     #         cd build/libs
     #         java -jar -Dspring.profiles.active=prod board-0.0.1-SNAPSHOT.jar
     - name: Install Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0.10.0
+      uses: 'google-github-actions/setup-gcloud@v2'
       with:
         project_id: ${{ secrets.PROJECT_ID }}
         service_account_key: ${{ secrets.KEY }}
