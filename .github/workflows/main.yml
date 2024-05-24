@@ -29,7 +29,7 @@ jobs:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.SSH_KEY }}
         script: |
           cd ci-server
           git pull
