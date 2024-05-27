@@ -24,31 +24,7 @@ jobs:
       # if: runner.os == 'Linux' || runner.os == 'macOS'
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-    # - name: CD with Project
-    #   uses: appleboy/ssh-action@v1.0.3
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     key: ${{ secrets.SSH_KEY }}
-    #     port: 22
-    #     script: |
-    #         cd ci-server
-    #         git pull
-    #         cd build/libs
-    #         java -jar -Dspring.profiles.active=prod board-0.0.1-SNAPSHOT.jar
-    - name: Install Google Cloud SDK
-      uses: 'google-github-actions/setup-gcloud@v2'
-      with:
-        project_id: ${{ secrets.PROJECT_ID }}
-        service_account_key: ${{ secrets.KEY }}
-    - name: Deploy to GCP Compute Engine
-      run: |
-        gcloud compute ssh ${{ secrets.GCE_INSTANCE_NAME }} \
-          --project=${{ secrets.PROJECT_ID }} \
-          --zone=${{ secrets.GCE_ZONE }} \
-          --command="sudo pkill -f 'java -jar' || true; cd /path/to/your/app && git pull && ./gradlew build && nohup java -jar build/libs/board-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod &"
 
-    
   dependency-submission:
     runs-on: ubuntu-latest
     permissions:
