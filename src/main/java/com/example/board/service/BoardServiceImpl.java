@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService {
     private final BoardRepository boardRepository;
-
+    //
     @Override
     public BoardResponse getBoardFromName(Long id) {
         Board board = boardRepository.findById(id).orElseThrow(IllegalArgumentException::new);
