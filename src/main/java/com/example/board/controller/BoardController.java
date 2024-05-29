@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//
 @CrossOrigin(originPatterns = "http://34.31.213.72",
         methods = {
         RequestMethod.GET,
