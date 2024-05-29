@@ -9,7 +9,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*",
+        allowedHeaders = "*",
+        methods = {
+        RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.DELETE,
+        RequestMethod.PUT,
+        RequestMethod.OPTIONS})
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/boards")
