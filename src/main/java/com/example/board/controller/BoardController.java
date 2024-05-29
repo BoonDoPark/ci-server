@@ -11,6 +11,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*",
         allowedHeaders = "*",
+        allowCredentials = "true",
         methods = {
         RequestMethod.GET,
         RequestMethod.POST,
