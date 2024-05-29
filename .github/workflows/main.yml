@@ -40,10 +40,10 @@ jobs:
         username: ${{secrets.SSH_USERNAME}}
         key: ${{secrets.SSH_KEY}}
         script: |
+          docker run --name mymysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=practice --network server -d mysql
           docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
           docker rm -f ${{secrets.DOCKER_REPO}}
           docker rm -f mymysql
-          docker run --name mymysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=practice --network server -d mysql
           docker run --name ${{secrets.DOCKER_REPO}} -p 8080:8080 -e profiles=prod -e user=root -e password=1234 --network server -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
             
 
