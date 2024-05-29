@@ -2,9 +2,9 @@ spring:
   application:
     name: board
   datasource:
-    url: jdbc:postgresql://postgres:5432/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: postgres
-    password: 1q2w3e4r
+    url: jdbc:mysql://mymysql:3306/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: ${user}
+    password: ${password}
   jpa:
     hibernate:
       ddl-auto: create
