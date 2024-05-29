@@ -2,8 +2,8 @@ spring:
   application:
     name: board
   datasource:
-    url: jdbc:postgresql://postgres:5432/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: postgres
+    url: jdbc:mysql://localhost:3306/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: root
     password: 1q2w3e4r
   jpa:
     hibernate:
