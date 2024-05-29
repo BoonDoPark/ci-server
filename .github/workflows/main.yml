@@ -40,9 +40,9 @@ jobs:
         username: ${{secrets.SSH_USERNAME}}
         key: ${{secrets.SSH_KEY}}
         script: |
-          docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}
+          docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
           docker rm -f ${{secrets.DOCKER_REPO}}
-          docker run --name ${{secrets.DOCKER_REPO}} -p 8080:8080 -e profiles=prod -e user=root -e password=1234 --network server -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}
+          docker run --name ${{secrets.DOCKER_REPO}} -p 8080:8080 -e profiles=prod -e user=root -e password=1234 --network server -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
             
 
     
