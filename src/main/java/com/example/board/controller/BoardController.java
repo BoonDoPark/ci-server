@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/boards")
 public class BoardController {
-    private final BoardService boardService;
+    private final BoardService boardService; // aaa
 
     @GetMapping
     public List<BoardResponse> getAllBoards() {
