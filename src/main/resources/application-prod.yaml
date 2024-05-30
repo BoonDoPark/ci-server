@@ -2,7 +2,7 @@ spring:
   application:
     name: board
   datasource:
-    url: jdbc:mysql://mymysql:3306/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    url: jdbc:mysql://${url}:3306/practice?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: ${user}
     password: ${password}
   jpa:
