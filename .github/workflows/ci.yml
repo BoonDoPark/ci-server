@@ -48,6 +48,18 @@ jobs:
           docker rm -f ${{secrets.DOCKER_REPO}}
           docker run --name ${{secrets.DOCKER_REPO}} -p 8080:8080 -e profiles=prod -e url=${{secrets.SSH_URL}} -e user=root -e password=1234 --network server -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
 
+    - name: ssh2
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{secrets.SSH_HOST2}}
+        username: ${{secrets.SSH_USERNAME}}
+        key: ${{secrets.SSH_KEY}}
+        script: |
+          docker pull ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
+          docker rm -f ${{secrets.DOCKER_REPO}}
+          docker run --name ${{secrets.DOCKER_REPO}} -p 8080:8080 -e profiles=prod -e url=${{secrets.SSH_URL}} -e user=root -e password=1234 --network server -d ${{secrets.DOCKER_USERNAME}}/${{secrets.DOCKER_REPO}}:prod
+  
+
   dependency-submission:
     runs-on: ubuntu-latest
     permissions:
